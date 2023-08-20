@@ -56,10 +56,6 @@ async function replaceInStream(
   }  
 
 export default async (request: Request, context: Context) => {
-    console.log("Headers:")
-    for (const [key, value] of request.headers.entries()) {
-        console.log(key, value);
-      }
     const url = new URL(request.url)
     if (url.pathname.match(/\..+$/)) {
         return;
@@ -77,4 +73,4 @@ export default async (request: Request, context: Context) => {
     return new Response(bodyStream, response);
 }
 
-export const config: Config = { path: "/*" };
+export const config: Config = { path: "/*", excludedPath: "/includes/*", cache: "manual" };

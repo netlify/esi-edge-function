@@ -56,6 +56,10 @@ async function replaceInStream(
   }  
 
 export default async (request: Request, context: Context) => {
+    console.log("Headers:")
+    for (const [key, value] of request.headers.entries()) {
+        console.log(key, value);
+      }
     const url = new URL(request.url)
     if (url.pathname.match(/\..+$/)) {
         return;

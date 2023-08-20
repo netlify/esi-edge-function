@@ -77,4 +77,4 @@ export default async (request: Request, context: Context) => {
     return new Response(bodyStream, response);
 }
 
-export const config: Config = { path: "/*", cache: "manual" };
+export const config: Config = { path: "/*" };
